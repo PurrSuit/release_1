@@ -25,7 +25,11 @@ class GamificationController < ApplicationController
 	end
 	
 	def delete
-	
+		id_gamification = params[:id]
+		gamifications = Gamification.where(id: id_gamification)
+		gamification = gamifications.first
+		redirect_to :gamifications_all
+		
 	end
 
 end
