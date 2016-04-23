@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<% @gamifications.each do | game | %>
+			<h2><%= game.name %></h2>
+			<h4><%= game.experience_points %></h4>
+			<h5><%= game.description %></h4>
+		<% end %>
+	</body>
+</html>

@@ -1,7 +1,8 @@
 class GamificationController < ApplicationController
 	
 	def all
-		render json: Gamification.all
+		#render json: Gamification.all
+		@gamifications = Gamification.all
 	end
 	
 	def show
