@@ -5,7 +5,11 @@ class GamificationController < ApplicationController
 	end
 	
 	def show
-	
+		id_gamification = params[:id]
+		gamifications = Gamification.where(id: id_gamification)
+		gamification = nil
+		end
+		render json: gamification	
 	end
 	
 	def new
