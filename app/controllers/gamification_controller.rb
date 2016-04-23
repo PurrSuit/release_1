@@ -7,6 +7,9 @@ class GamificationController < ApplicationController
 
 	def show
 		@gamification = Gamification.find(params[:id])
+		id_gamification = params[:id]
+		gamifications = Gamification.where(id: id_gamification)
+		gamification = nil
 	end
 
 	def new
