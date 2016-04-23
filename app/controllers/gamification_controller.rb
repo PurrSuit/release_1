@@ -6,11 +6,7 @@ class GamificationController < ApplicationController
 	end
 
 	def show
-		id_gamification = params[:id]
-		gamifications = Gamification.where(id: id_gamification)
-		gamification = nil
-		end
-		render json: gamification
+		@gamification = Gamification.find(params[:id])
 	end
 
 	def new
@@ -44,4 +40,5 @@ class GamificationController < ApplicationController
 	def gamification_params
 		params.require(:gamification).permit(:name, :experience_points, :description)
 	end
+
 end
