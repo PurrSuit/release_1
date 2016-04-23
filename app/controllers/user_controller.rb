@@ -10,7 +10,7 @@ class UserController < ApplicationController
         if (users.length > 0)
             user = users.first
         else
-            raise "error mano"
+            raise "error"
         end
         render json: user
   end
