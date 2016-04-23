@@ -14,11 +14,14 @@ class GamificationController < ApplicationController
 	end
 	
 	def new
-	
+		@gamification = Gamification.new	
 	end
 	
 	def create
-	
+		@gamification = Gamification.new(gamification_params)
+		if @gamification.save
+			redirect_to :gamifications_all
+		end
 	end
 	
 	def edit
@@ -37,4 +40,9 @@ class GamificationController < ApplicationController
 		
 	end
 
+	private
+	
+	def gamification_params
+		params.require(:gamification).permit(:name, :experience_points, :description)
+	end
 end
