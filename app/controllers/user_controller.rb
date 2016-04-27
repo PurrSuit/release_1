@@ -46,7 +46,11 @@ end
   end
 
   def delete
-
+    id_user = params[:id]
+    users = User.where(id: id_user)
+    user = users.first
+    user.destroy
+      redirect_to :users_all
   end
 
   private
