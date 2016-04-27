@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 	get 'gamifications/:id' => 'gamification#show', format: :json
 	get 'gamifications/:id/update' => 'gamification#update', format: :json, as: :gamification_update
 	delete 'gamifications/:id' => 'user#delete', as: :gamification_delete
+
+	get 'quests/all' => 'quest#all', format: :json
+	get 'quests/new' => 'quest#new', format: :json
+	post 'quests/create' => 'quest#create', as: :quests
 end
