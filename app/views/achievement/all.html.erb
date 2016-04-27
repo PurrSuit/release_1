@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <% @achievements.each do | achie | %>
+      <h2><%= achie.name %></h2>
+      <h4><%= achie.experience_points %></h4>
+      <h5><%= achie.description %></h4>
+    <% end %>
+  </body>
+</html>
+
