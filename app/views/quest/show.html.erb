@@ -1,0 +1,18 @@
+<p>
+  <strong>Name:</strong>
+  <%= @quest.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @quest.description %>
+</p>
+
+<p>
+<strong>Experience:</strong>
+<%= @quest.experience_points %>
+</p>
+
+
+<%= link_to 'Edit', edit_quest_path(@quest) %> |
+<%= link_to 'Back', quests_path %>

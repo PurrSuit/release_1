@@ -14,8 +14,6 @@
 ActiveRecord::Schema.define(version: 20160424033653) do
 
   create_table "gamifications", force: :cascade do |t|
-    t.integer  "actable_id"
-    t.string   "actable_type"
     t.string   "name"
     t.integer  "experience_points"
     t.string   "description"
