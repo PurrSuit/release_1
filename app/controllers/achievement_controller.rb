@@ -20,11 +20,16 @@ class AchievementController < ApplicationController
 	end
 
 	def edit
-
+		@achievement = Achievement.find(params[:id])
 	end
 
 	def update
-
+		@achievement = Achievement.find(params[:id])
+		if @achievement.update(achievement_params)
+			redirect_to @achievement
+		else
+			render 'edit'
+		end
 	end
 
 	def delete
