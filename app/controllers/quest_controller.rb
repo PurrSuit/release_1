@@ -22,17 +22,14 @@ class QuestController < ApplicationController
 	end
 
 	def edit
-
 		@quest = Quest.find(params[:id])
-		render 'edit'
-
 	end
 
 	def update
 		@quest = Quest.find(params[:id])
 
 		if @quest.update(quest_params)
-			redirect_to :quests_all
+			redirect_to @quest
 		else
 			render 'edit'
 		end
@@ -42,10 +39,7 @@ class QuestController < ApplicationController
 		id_quest = params[:id]
 		quests = Quest.where(id: id_quest)
 		quest = quests.first
-			redirect_to :quests_all
-		else
-			render 'edit'
-		end
+		redirect_to :quests_all
 	end
 
 	private
