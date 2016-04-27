@@ -5,8 +5,9 @@ class UserController < ApplicationController
   end
 
   def show
-    users = User.where(params[:id])
-      user = nil
+    id_users = params[:id]
+        users = User.where(id: id_users)
+          user = nil
         if (users.length > 0)
             user = users.first
         else
@@ -21,7 +22,7 @@ class UserController < ApplicationController
 
   def create
     user = User.new(get_params)
-    if @user.save
+    if user.save
         render json: user
       else
         render action: :new
@@ -29,11 +30,19 @@ end
   end
 
   def edit
-    
+    id_users = params[:id]
+    user = nil
+    users = User.where(id: id_users)
+      @user = users.first
+      render :edit
   end
 
   def update
-
+    id_users = params[:id]
+    users = User.where(id: id_users)
+    user = users.first
+        user.update(get_params)
+        render json: user
   end
 
   def delete
