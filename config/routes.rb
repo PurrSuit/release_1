@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 	get 'gamifications/all' => 'gamification#all', format: :json
 
 	get 'achievements/all' => 'achievement#all', format: :json
-	get 'achievements/new' => 'achievement#new', format: :json
+	get 'achievements/new' => 'achievement#new', format: :json, as: :achievements_new
 	post 'achievements/create' => 'achievement#create', as: :achievements
 	get 'achievements/:id' => 'achievement#show', format: :json
-	
+		
 	get 'quests/all' => 'quest#all', format: :json
 	get 'quests/new' => 'quest#new', format: :json
 	post 'quests/create' => 'quest#create', as: :quests
