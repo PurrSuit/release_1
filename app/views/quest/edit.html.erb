@@ -1,21 +1,7 @@
 <h1>Editing quest</h1>
  
-<%= form_for :quest, url: quest_path(@quest), method: :patch do |f| %>
- 
-  <% if @quest.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@quest.errors.count, "error") %> prohibited
-        this quest from being saved:
-      </h2>
-      <ul>
-        <% @quest.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
+<%= form_for :quest, url: quests_update_path, method: :put do |f| %>
+  
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -37,4 +23,4 @@
  
 <% end %>
  
-<%= link_to 'Back', quests_path %>
+<%= button_to 'Back', quests_path %>
