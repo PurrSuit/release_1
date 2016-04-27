@@ -7,13 +7,16 @@ Rails.application.routes.draw do
   delete 'users/:id' => 'user#delete', as: :users_delete
 
 	get 'gamifications/all' => 'gamification#all', format: :json
-	get 'gamifications/new' => 'gamification#new', format: :json
-	post 'gamifications/create' => 'gamification#create', as: :gamifications
-	get 'gamifications/:id' => 'gamification#show', format: :json
-	get 'gamifications/:id/update' => 'gamification#update', format: :json, as: :gamification_update
-	delete 'gamifications/:id' => 'user#delete', as: :gamification_delete
 
+	get 'achievements/all' => 'achievement#all', format: :json
+	get 'achievements/new' => 'achievement#new', format: :json
+	post 'achievements/create' => 'achievement#create', as: :achievements
+	get 'achievements/:id' => 'achievement#show', format: :json
+	
 	get 'quests/all' => 'quest#all', format: :json
 	get 'quests/new' => 'quest#new', format: :json
 	post 'quests/create' => 'quest#create', as: :quests
+	get 'quests/:id' => 'quest#show', format: :json
+	get 'quests/:id/update' => 'quest#update', format: :json, as: :quests_update
+	delete 'quests/:id' => 'quest#delete', as: :quests_delete
 end
