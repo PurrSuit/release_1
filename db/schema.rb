@@ -11,9 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421230411) do
+ActiveRecord::Schema.define(version: 20160424033653) do
 
   create_table "gamifications", force: :cascade do |t|
+    t.integer  "actable_id"
+    t.string   "actable_type"
     t.string   "name"
     t.integer  "experience_points"
     t.string   "description"
@@ -31,6 +33,9 @@ ActiveRecord::Schema.define(version: 20160421230411) do
     t.string   "age"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "quests", force: :cascade do |t|
   end
 
   create_table "users", force: :cascade do |t|
