@@ -3,7 +3,7 @@ class Quest < ActiveRecord::Base
 	validates_presence_of :name, :description, :experience_points
 	validates_numericality_of :experience_points
 
-	validades :name, lenght{minimum: 3}, uniquiness
-	validades :description, lenght{minimum: 10, maximum: 100}
+	validates :name, presence: true, length: {minimum: 3}
+	validates :description, presence: true, lenght: {minimum: 10, maximum: 140}
 
 end
