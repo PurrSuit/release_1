@@ -17,16 +17,24 @@ class QuestController < ApplicationController
 		@quest = Quest.new(quest_params)
 		if @quest.save
 			redirect_to :quests_all
+		else
+			redirect_to '/quests/new'
 		end
 	end
 
 	def edit
+<<<<<<< HEAD
 		@quest = Quest.find(params[:id])	
+=======
+		@quest = Quest.find(params[:id])
+		render 'edit'
+>>>>>>> 17acd86421f52699e47858c116575e95353ef89a
 	end
 
 	def update
 		@quest = Quest.find(params[:id])
 		if @quest.update(quest_params)
+<<<<<<< HEAD
 			redirect_to @quest
 		else
 			render 'edit'
@@ -38,6 +46,20 @@ class QuestController < ApplicationController
 		quests = Quest.where(id: id_quest)
 		quest = quests.first
 		redirect_to :quests_all
+=======
+			redirect_to :quests_all
+		else 
+			render 'edit'
+		end
+	end
+	
+	 def delete
+	 	id_quest = params[:id]
+        quests = Quest.where(id: id_quest)
+        quest = quests.first
+     	quest.destroy
+        redirect_to :quests_all
+>>>>>>> 17acd86421f52699e47858c116575e95353ef89a
 	end
 
 	private
