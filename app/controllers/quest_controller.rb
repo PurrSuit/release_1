@@ -25,13 +25,13 @@ class QuestController < ApplicationController
 
 		@quest = Quest.find(params[:id])
 		render 'edit'
+
 	end
 
 	def update
 		@quest = Quest.find(params[:id])
 
 		if @quest.update(quest_params)
-<<<<<<< HEAD
 
 			redirect_to @quest
 		else
@@ -47,21 +47,8 @@ class QuestController < ApplicationController
 		else
 			render 'edit'
 		end
-=======
-			redirect_to :quests_all
-		else 
-			render 'edit'
-		end
 	end
-	
-	 def delete
-	 	id_quest = params[:id]
-        quests = Quest.where(id: id_quest)
-        quest = quests.first
-     	quest.destroy
-        redirect_to :quests_all
->>>>>>> 95d32fa... Quest controller pronta com todos os métodos
-	end
+
 
 	private
 
