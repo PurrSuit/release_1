@@ -32,7 +32,6 @@ class QuestController < ApplicationController
 		@quest = Quest.find(params[:id])
 
 		if @quest.update(quest_params)
-
 			redirect_to :quests_all
 		else
 			render 'edit'
