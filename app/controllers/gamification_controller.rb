@@ -3,6 +3,8 @@ class GamificationController < ApplicationController
 		@gamifications = Gamification.all
 	end
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 	
 	def show
 <<<<<<< HEAD
@@ -48,4 +50,5 @@ class GamificationController < ApplicationController
 
 =======
 >>>>>>> c7ff44a... Achievement Controller
+>>>>>>> 3f50d85c17b0e064ad4a97fbde56ead7173714d4
 end
