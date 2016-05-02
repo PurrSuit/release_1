@@ -42,11 +42,12 @@ class QuestController < ApplicationController
 		id_quest = params[:id]
 		quests = Quest.where(id: id_quest)
 		quest = quests.first
-			redirect_to :quests_all
-		else
-			render 'edit'
-		end
+		redirect_to :quests_all
 	end
+	#		else
+	#			render 'edit'
+	#				end
+	
 
 
 	private
@@ -54,3 +55,4 @@ class QuestController < ApplicationController
 	def quest_params
 		params.require(:quest).permit(:name, :experience_points, :description)
 	end
+end

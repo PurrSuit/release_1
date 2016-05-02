@@ -1,11 +1,11 @@
 class AchievementController < ApplicationController
 
 	def all
-		@achievements = Achievement.all
+		render json: Achievement.all
 	end
 
 	def show
-		@achievement = Achievement.find(params[:id])
+		render json: Achievement.find(params[:id])
 	end
 
 	def new
@@ -21,6 +21,7 @@ class AchievementController < ApplicationController
 
 	def edit
 		@achievement = Achievement.find(params[:id])
+		render 'edit'
 	end
 
 	def update
@@ -33,7 +34,10 @@ class AchievementController < ApplicationController
 	end
 
 	def delete
-
+		id_achievement = params[:id]
+		achievements = Achievement.where(id: id_quest)
+		achievement = achievements.first
+			redirect_to :achievements_all
 	end
 
 	private
