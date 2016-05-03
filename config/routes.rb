@@ -23,4 +23,8 @@ Rails.application.routes.draw do
 	get 'quests/:id/edit' => 'quest#edit', as: :quests_edit
 
 	delete 'quests/:id' => 'quest#delete', as: :quests_delete
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 end

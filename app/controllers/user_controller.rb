@@ -24,6 +24,7 @@ class UserController < ApplicationController
     user = User.new(get_params)
     saved = user.save
     if saved
+      session[:user_id] = user.id
       render json: user
     else
       render 'new'
