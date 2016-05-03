@@ -21,8 +21,15 @@ Rails.application.routes.draw do
 	get 'quests/:id' => 'quest#show', format: :json
 	put 'quests/:id/update' => 'quest#update', format: :json, as: :quests_update
 	get 'quests/:id/edit' => 'quest#edit', as: :quests_edit
-
 	delete 'quests/:id' => 'quest#delete', as: :quests_delete
+
+	get 'ufs/all' => 'uf#all', format: :json
+	get 'ufs/new' => 'uf#new'
+  post 'ufs/create' => 'uf#create', as: :ufs
+	get 'ufs/:id' => 'uf#show', format: :json
+	patch 'ufs/:id/update' => 'uf#update', format: :json, as: :uf
+	get 'ufs/:id/edit' => 'uf#edit'
+	delete 'ufs/:id' => 'uf#delete', as: :ufs_delete
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
