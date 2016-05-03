@@ -1,5 +1,5 @@
 class Uf < ActiveRecord::Base
-	# has_many :people, :deputys
+	# has_many :people, :parties
 
 	validates :name, presence: true, length: { minimum: 4, maximum: 20 }
 	validates :initials, presence: true, length: { minimum: 2, maximum: 2 }
