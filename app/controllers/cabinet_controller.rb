@@ -23,6 +23,7 @@ class CabinetController <  ApplicationController
 
   def edit
     @cabinet = Cabinet.find(cabinet_params)
+    
     render 'edit'
   end
 
