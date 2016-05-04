@@ -32,6 +32,14 @@ Rails.application.routes.draw do
 	get 'ufs/:id/edit' => 'uf#edit'
 	delete 'ufs/:id' => 'uf#delete', as: :ufs_delete
 
+	get 'parties/all' => 'party#all', format: :json
+	get 'parties/new' => 'party#new'
+	post 'parties/create' => 'party#create', as: :parties
+	get 'parties/:id' => 'party#show', format: :json
+	patch 'parties/:id/update' => 'party#update', format: :json, as: :party
+	get 'parties/:id/edit' => 'party#edit'
+	delete 'parties/:id' => 'party#delete', as: :parties_delete
+	
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

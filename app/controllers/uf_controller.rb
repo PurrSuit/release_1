@@ -16,6 +16,8 @@ class UfController < ApplicationController
     @uf = Uf.new(uf_params)
     if @uf.save
       redirect_to :ufs_all
+		else
+			render 'new'
     end
   end
 
