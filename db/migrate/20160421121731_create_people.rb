@@ -9,7 +9,9 @@ class CreatePeople < ActiveRecord::Migration
       t.string :email
       t.string :cpf
       t.string :age
-      
+  
+			t.references :uf
+			    
       t.timestamps null: false
     end
   end
