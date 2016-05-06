@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160506150419) do
     t.string   "email"
     t.string   "cpf"
     t.string   "age"
+    t.integer  "uf_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
