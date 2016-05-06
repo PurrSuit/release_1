@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503231843) do
+ActiveRecord::Schema.define(version: 20160506150419) do
 
   create_table "achievements", force: :cascade do |t|
+  end
+
+  create_table "deputies", force: :cascade do |t|
+    t.integer "registration"
+    t.string  "legislation_situation"
   end
 
   create_table "gamifications", force: :cascade do |t|
@@ -42,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160503231843) do
     t.string   "email"
     t.string   "cpf"
     t.string   "age"
-    t.integer  "uf_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
