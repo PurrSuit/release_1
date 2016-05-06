@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get 'users/:id/update' => 'user#update', format: :json, as: :users_update
   delete 'users/:id' => 'user#delete', as: :users_delete
 
+  get 'deputies/all' => 'deputy#all', format: :json
+  get 'deputies/:id' => 'deputy#show', format: :json
+  delete 'deputies/:id' => 'deputy#delete', as: :deputies_delete
+
+
+
 	get 'gamifications/all' => 'gamification#all', format: :json
 	get 'gamification/:id' => 'gamification#show', as: :show_gamification
 
