@@ -1,7 +1,12 @@
 class QuestController < ApplicationController
 
 	def all
-		render json: Quest.all
+		@quest = Quest.all
+
+		respond_to do |format|
+			format.html
+			format.json {render json: @quest}
+		end
 	end
 
 	def show
@@ -45,7 +50,7 @@ class QuestController < ApplicationController
 	#		else
 	#			render 'edit'
 	#				end
-	
+
 
 
 	private

@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 	patch 'parties/:id/update' => 'party#update', format: :json, as: :party
 	get 'parties/:id/edit' => 'party#edit'
 	delete 'parties/:id' => 'party#delete', as: :parties_delete
-	
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

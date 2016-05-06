@@ -2,15 +2,21 @@ class AchievementController < ApplicationController
 
 	def all
 <<<<<<< HEAD
+<<<<<<< HEAD
 		render json: Achievement.all
 =======
+=======
+>>>>>>> de0a0aa... Added a format option for Quests and Achievements; Fixed Quests and Achievements /all.html ruby error
 		@achievement = Achievement.all
 
 		respond_to do |format|
 			format.html
 			format.json {render json: @achievement}
 		end
+<<<<<<< HEAD
 >>>>>>> ad689f8... Achievement controller changed,method delete updated
+=======
+>>>>>>> de0a0aa... Added a format option for Quests and Achievements; Fixed Quests and Achievements /all.html ruby error
 	end
 
 	def show
