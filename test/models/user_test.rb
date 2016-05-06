@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Usuario Teste", email: "a@b.com", password: "testeteste",
-    password_digest: "testeteste", gender:"Masculino", age: 21)
+    password_confirmation: "testeteste", gender:"Masculino", age: 21)
   end
 
   test "setup should be valid" do
@@ -31,5 +31,15 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "password and password_confirmation should be equal" do
+    @user.password_confirmation = "teste231231"
+    assert_not @user.valid?
+  end
+
+  test "user should be able to edit " do
+    @user.update(name: "Tulio", email: "c@d.com", password: "testando",
+     password_confirmation: "testando", age: 21, gender: "Feminino")
+     assert @user.valid?
+  end
 
 end
