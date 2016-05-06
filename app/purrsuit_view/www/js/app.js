@@ -5,10 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngResource'])
 
 //Injecting ngResource
-angular.module('stater', 'starter.controllers', 'stater.services', 'ngResource')
+//angular.module('stater', 'starter.controllers', 'stater.services', )
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,6 +42,15 @@ angular.module('stater', 'starter.controllers', 'stater.services', 'ngResource')
   })
 
   // Each tab has its own nav history stack:
+  .state('tab.quests', {
+    url: '/quests',
+    views: {
+      'tab-quests': {
+        templateUrl: 'templates/tab-quests.html',
+        controller: 'QuestCtrl'
+      }
+    }
+  })
 
   .state('tab.dash', {
     url: '/dash',
