@@ -1,5 +1,14 @@
 angular.module('starter.controllers', [])
 
+// Adding QUESTS data to $scope
+.controller('QuestCtrl', function($scope, Quests)
+{
+  Quests.query().$promise.then(function(response)
+  {
+    $scope.quests_data = response;
+  })
+})
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
