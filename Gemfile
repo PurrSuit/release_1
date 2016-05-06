@@ -25,7 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'active_record-acts_as'
 
 # Integration with ionic
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
 
 group :development, :test do
