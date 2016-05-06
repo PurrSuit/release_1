@@ -1,0 +1,15 @@
+<ion-view view-title="Quests">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat="quest_entry in quests-data">
+      <div class="item item-divider">
+          {{quest_entry.name}}
+      </div>
+
+      <div class="item item-body">
+        <div>
+          {{quest_entry.description}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

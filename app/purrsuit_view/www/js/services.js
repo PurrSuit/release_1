@@ -1,5 +1,11 @@
 angular.module('starter.services', [])
 
+// Getting JSON data from rails server QUESTS
+.factory('Quests', function($resource)
+{
+  return $resource("http://localhost:3000/quests/all.json");
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
