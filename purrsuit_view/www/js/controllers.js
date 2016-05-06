@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -40,6 +40,22 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
+
+// Quests controller
+.controller('QuestsCtrl', function($scope, Quests)
+{
+  $scope.quests = Quests.query();
+  console.log("controller QuestsCtrl")
+  console.log($scope.quests)
+})
+
+/* Quests Details controller
+.controller('QuestCtrl', function($scope, $stateParams, Quests)
+{
+  $scope.quest = Quests.get({name: $stateParams.questName})
+  console.log("controller QuestCtrl")
+  console.log($scope.quest)
+}) */
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
