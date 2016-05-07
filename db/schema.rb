@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507210159) do
+ActiveRecord::Schema.define(version: 20160507211711) do
 
   create_table "achievements", force: :cascade do |t|
   end
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160507210159) do
     t.string   "name"
     t.string   "gender"
     t.string   "email"
-    t.string   "cpf"
     t.string   "age"
     t.integer  "uf_id"
     t.datetime "created_at",   null: false
