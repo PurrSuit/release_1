@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506150419) do
+ActiveRecord::Schema.define(version: 20160507210159) do
 
   create_table "achievements", force: :cascade do |t|
+  end
+
+  create_table "cabinets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "deputies", force: :cascade do |t|
