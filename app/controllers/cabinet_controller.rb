@@ -22,8 +22,7 @@ class CabinetController <  ApplicationController
   end
 
   def edit
-    @cabinet = Cabinet.find(cabinet_params)
-    
+    @cabinet = Cabinet.find(cabinet_params)1
     render 'edit'
   end
 
@@ -39,13 +38,13 @@ class CabinetController <  ApplicationController
 
   def delete
     id_dep = params[:id]
-    cabinets = Cabinet.where(id: id_uf)
+    cabinets = Cabinet.where(id: id_dep)
     cabinet = cabinets.first
     redirect_to :cabinet_all
   end
 
 private
   def cabinet_params
-    params.require(:id).permit(:cabinet, :annex)
+    params.require(:id).permit(:cabinet, :annex, :number)
   end
 end
