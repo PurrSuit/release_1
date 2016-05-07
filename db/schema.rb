@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20160507211930) do
   end
 
   create_table "cabinets", force: :cascade do |t|
+    t.string   "phone"
+    t.string   "annex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
