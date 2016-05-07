@@ -1,41 +1,5 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 3f50d85c17b0e064ad4a97fbde56ead7173714d4
 <!DOCTYPE html>
-<html>
-  <body>
-    <%= form_for(@quest) do | form | %>
-      <%= form.text_field :name, :placeholder => "Quest's name"%>
-      <%= form.number_field :experience_points, :placeholder => "Experience Points"%>
-<<<<<<< HEAD
-      <%= form.text_field :description, :placeholder => "Description" %>
-=======
-      <%= form.text_field :decription, :placeholder => "Description" %>
->>>>>>> 3f50d85c17b0e064ad4a97fbde56ead7173714d4
-      <%= form.submit "Create Quest"%>
-    <% end %>
-  </body>
-</html>
-<<<<<<< HEAD
-=======
-=======
 <%= form_for :quest, url: quests_path do |f| %>
- 
-  <% if @quest.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@quest.errors.count, "error") %> prohibited
-        this quest from being saved:
-      </h2>
-      <ul>
-        <% @quest.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -56,6 +20,4 @@
   </p>
  
 <% end %>
- 
->>>>>>> 9506c6f... Quest's views repair
->>>>>>> 3f50d85c17b0e064ad4a97fbde56ead7173714d4
+
