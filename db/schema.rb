@@ -11,8 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20160507211711) do
+=======
+ActiveRecord::Schema.define(version: 20160507211930) do
+>>>>>>> fd9b2e5... Adding deputy_name to deputy table
 
 
   create_table "achievements", force: :cascade do |t|
@@ -28,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160507211711) do
   create_table "deputies", force: :cascade do |t|
     t.integer "registration"
     t.string  "legislation_situation"
+    t.string  "deputy_name"
   end
 
   create_table "gamifications", force: :cascade do |t|
