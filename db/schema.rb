@@ -11,20 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160506150419) do
-=======
+
 ActiveRecord::Schema.define(version: 20160507174737) do
->>>>>>> 1d87936... creating cabinet model
+
 
   create_table "achievements", force: :cascade do |t|
   end
 
-<<<<<<< HEAD
-  create_table "deputies", force: :cascade do |t|
-    t.integer "registration"
-    t.string  "legislation_situation"
-=======
   create_table "cabinet", force: :cascade do |t|
     t.string   "annex"
     t.integer  "id_dep"
@@ -37,7 +30,6 @@ ActiveRecord::Schema.define(version: 20160507174737) do
     t.string   "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
->>>>>>> 1d87936... creating cabinet model
   end
 
   create_table "gamifications", force: :cascade do |t|

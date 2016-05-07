@@ -51,3 +51,5 @@ class UfController < ApplicationController
     params.require(:uf).permit(:name, :initials)
   end
 end
+
+
