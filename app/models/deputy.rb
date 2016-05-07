@@ -1,3 +1,5 @@
+require 'httparty'
+
 class Deputy < ActiveRecord::Base
   acts_as :person
 
@@ -9,5 +11,11 @@ class Deputy < ActiveRecord::Base
   validates :gender, presence: true
   validates :registration, presence: true, uniqueness: true
   validates :legislation_situation, presence: true, length: {maximum: 100}
+
+
+  def parser_deputy
+    response = HTTparty.get('')
+  end
+
 
 end
