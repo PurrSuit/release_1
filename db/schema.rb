@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160507211930) do
   create_table "deputies", force: :cascade do |t|
     t.integer "registration"
     t.string  "legislation_situation"
+    t.integer "party_id"
+    t.integer "uf_id"
     t.string  "deputy_name"
   end
 
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160507211930) do
     t.string  "password_digest"
     t.integer "experience_points", default: 0,     null: false
     t.boolean "role_admin",        default: false, null: false
+    t.integer "uf_id"
   end
 
 end
