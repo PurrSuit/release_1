@@ -1,7 +1,12 @@
 class AchievementController < ApplicationController
 
 	def all
-		render json: Achievement.all
+		@achievement = Achievement.all
+
+		respond_to do |format|
+			format.html
+			format.json {render json: @achievement}
+		end
 	end
 
 	def show

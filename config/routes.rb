@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get 'users/:id/update' => 'user#update', format: :json, as: :users_update
   delete 'users/:id' => 'user#delete', as: :users_delete
 
+  get 'deputies/all' => 'deputy#all', format: :json
+  get 'deputies/:id' => 'deputy#show', format: :json
+  delete 'deputies/:id' => 'deputy#delete', as: :deputies_delete
+
+
+
 	get 'gamifications/all' => 'gamification#all', format: :json
 
 	get 'achievements/all' => 'achievement#all', format: :json
@@ -38,7 +44,7 @@ Rails.application.routes.draw do
 	patch 'parties/:id/update' => 'party#update', format: :json, as: :party
 	get 'parties/:id/edit' => 'party#edit'
 	delete 'parties/:id' => 'party#delete', as: :parties_delete
-	
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
