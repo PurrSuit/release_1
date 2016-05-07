@@ -1,7 +1,12 @@
 class QuestController < ApplicationController
 
 	def all
-		render json: Quest.all
+		@quest = Quest.all
+
+		respond_to do |format|
+			format.html
+			format.json {render json: @quest}
+		end
 	end
 
 	def show
@@ -16,8 +21,6 @@ class QuestController < ApplicationController
 		@quest = Quest.new(quest_params)
 		if @quest.save
 			redirect_to :quests_all
-		else
-			redirect_to '/quests/new'
 		end
 	end
 
@@ -42,11 +45,12 @@ class QuestController < ApplicationController
 		id_quest = params[:id]
 		quests = Quest.where(id: id_quest)
 		quest = quests.first
-			redirect_to :quests_all
-		else
-			render 'edit'
-		end
+		redirect_to :quests_all
 	end
+	#		else
+	#			render 'edit'
+	#				end
+
 
 
 	private
@@ -54,3 +58,4 @@ class QuestController < ApplicationController
 	def quest_params
 		params.require(:quest).permit(:name, :experience_points, :description)
 	end
+end

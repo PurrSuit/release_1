@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427020103) do
+ActiveRecord::Schema.define(version: 20160506150419) do
 
   create_table "achievements", force: :cascade do |t|
+  end
+
+  create_table "deputies", force: :cascade do |t|
+    t.integer "registration"
+    t.string  "legislation_situation"
   end
 
   create_table "gamifications", force: :cascade do |t|
@@ -26,6 +31,14 @@ ActiveRecord::Schema.define(version: 20160427020103) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "parties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "initials"
+    t.integer  "uf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.integer  "actable_id"
     t.string   "actable_type"
@@ -34,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160427020103) do
     t.string   "email"
     t.string   "cpf"
     t.string   "age"
+    t.integer  "uf_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -41,10 +55,17 @@ ActiveRecord::Schema.define(version: 20160427020103) do
   create_table "quests", force: :cascade do |t|
   end
 
+  create_table "ufs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "initials"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string  "password_digest"
-    t.integer "experience_points"
-    t.boolean "role_admin"
+    t.integer "experience_points", default: 0,     null: false
+    t.boolean "role_admin",        default: false, null: false
   end
 
 end
