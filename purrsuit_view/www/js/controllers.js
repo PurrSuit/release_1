@@ -48,7 +48,11 @@ angular.module('starter.controllers', ['starter.services', 'ngResource'])
 
 //SINGLE -- Quests Details controller
 .controller('QuestCtrl', function($scope, $stateParams, Quest) {
-  $scope.quest = Quest.getData({name: $stateParams.name})
+  var questArray = Quest.get({id: $stateParams.questId});
+  $scope.whichQuest = questArray;//Quest.get({id: $stateParams.questId});
+  console.log(typeof questArray + " " + Array.isArray(questArray));
+  console.log($stateParams.questId);
+  console.log($scope.whichQuest);
 })
 
 .controller('PlaylistsCtrl', function($scope) {

@@ -1,9 +1,9 @@
- <ion-view view-title="Quest">
+<ion-view view-title="Todas as Quests">
   <ion-content>
-    {{quests}}
     <ion-list>
-      <ion-item ng-repeat="test in quests">
-        {{test}}
+      <ion-item ng-repeat="itemQuest in quests.quest"
+                href="#/app/quests/{{itemQuest.id}}">
+        {{itemQuest.name}}
       </ion-item>
     </ion-list>
   </ion-content>
