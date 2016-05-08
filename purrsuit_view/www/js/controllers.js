@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services', 'ngResource'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,16 +41,36 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+// ALL -- Quests controller
+.controller('QuestsCtrl', function($scope, Quest) {
+    $scope.quests = Quest.query();
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+//SINGLE -- Quests Details controller
+.controller('QuestCtrl', function($scope, $stateParams, Quest) {
+  $scope.quest = Quest.getData({name: $stateParams.name})
+})
+
+.controller('PlaylistsCtrl', function($scope) {
+  $scope.playlists = [{
+    title: 'Reggae',
+    id: 1
+  }, {
+    title: 'Chill',
+    id: 2
+  }, {
+    title: 'Dubstep',
+    id: 3
+  }, {
+    title: 'Indie',
+    id: 4
+  }, {
+    title: 'Rap',
+    id: 5
+  }, {
+    title: 'Cowbell',
+    id: 6
+  }];
+})
+
+.controller('PlaylistCtrl', function($scope, $stateParams) {});
