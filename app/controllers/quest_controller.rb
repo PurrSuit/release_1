@@ -49,12 +49,8 @@ class QuestController < ApplicationController
 		quest = quests.first
 		redirect_to :quests_all
 	end
-	#		else
-	#			render 'edit'
-	#				end
 
-
-
+	
 	private
 
 	def quest_params

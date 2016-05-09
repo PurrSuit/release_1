@@ -76,6 +76,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     }
   })
 
+  .state('app.login', {
+    url: "/login",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/login.html",
+        controller: 'loginCtrl'
+      }
+    }
+  })
+
+
+
+
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -87,5 +100,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
 
     // if none of the above states are matched, use this as the fallback
     // Deputys view is 'browse'
-  $urlRouterProvider.otherwise('/app/browse');
+  $urlRouterProvider.otherwise('/app/login');
 });

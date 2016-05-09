@@ -11,13 +11,23 @@ class UserController < ApplicationController
         if (users.length > 0)
           user = users.first
         else
-          raise "error"
+          raise "ERROR: No user to be shown"
         end
           render json: user
   end
 
-  def new
+  def logInConfirm
+    email_user = params[:email]
+    password_user = params[:password]
+    user = User.where(email: email_user)
 
+    if !user
+      raise "ERROR: User not found"
+    else
+      if password_user == user.password
+          render json: user
+      end
+    end
   end
 
   def create
@@ -57,6 +67,7 @@ class UserController < ApplicationController
 
   private
   def get_params
-        params.require(:user).permit(:name,:gender,:email,:cpf,:age,:password,:password_confirmation)
+        params.require(:user).permit(:name, :gender, :email, :cpf, :age,
+                                    :password, :password_confirmation)
     end
 end
