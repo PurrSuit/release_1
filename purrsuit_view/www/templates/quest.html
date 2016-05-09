@@ -1,18 +1,24 @@
-<ion-view view-title="{{quests.quest[questId].name}}">
+<ion-view view-title="{{quests.quest[questId-1].name}}">
   <ion-content>
     <div class="list card">
-      <div class="item">
+      <div class="item item-icon-left">
+				<i class="icon ion-ios-game-controller-b-outline"></i>
         <h2 class="QuestTitle">Name</h2>
       </div>
       <div class="item item-body">
 <!--        <p>{{quests.quest[{{}}</p> -->
-				<p> {{quests.quest[questId].name}} </p>
+				<p> {{quests.quest.getElementById(questId).name}} </p>
       </div>
-			<div class="item">
+			<div class="item item-icon-left">
+				<i class="icon ion-clipboard"></i>
 				<h2 class="QuestTitle"> Description </h2>
 			</div>
 			<div class="item-body">
-				<p>{{quests.quest[questId].description}} </p>
+				<p>{{quests.quest[questId-1].description}} </p>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-ribbon-b"></i>
+				<p>{{quests.quest[questId-1].experience_points}} Experience Points</p>
 			</div>
       <div class="item tabs tabs-secondary tabs-icon-left">
         <a class="tab-item">
