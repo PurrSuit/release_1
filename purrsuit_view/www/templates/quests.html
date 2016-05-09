@@ -1,9 +1,10 @@
 <ion-view view-title="Todas as Quests">
   <ion-content>
     <ion-list>
-      <ion-item class="item-icon-left" ng-repeat="itemQuest in quests.quest"
+      <ion-item class="item-icon-left" ng-repeat="itemQuest in quest"
                 href="#/app/quests/{{itemQuest.id}}">
 				<i class="icon ion-ios-game-controller-b"> </i>
+        {{itemQuest.id}}
         {{itemQuest.name}}
       </ion-item>
     </ion-list>
