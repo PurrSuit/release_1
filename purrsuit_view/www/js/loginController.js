@@ -5,7 +5,7 @@ angular.module('starter')
   $scope.signIn = function(user) {
 
     LogInFactory.get(user,function(data){},function(error){
-      alert("ACA");
+      alert("ERROR: Could not login :(");
 
 
     });
