@@ -1,10 +1,11 @@
 angular.module('starter.services', ['ngResource'])
 
 // REST services
-.factory('Quest', function($resource){
-  return $resource('http://localhost:3000/quests/all.json',
-  {method: 'getQuest', q: '*'},
-  {'query': {method: 'GET'}, isArray:true}
-  )
-});
+// Create new file for .factory
+.factory('Quest', function($resource) {
+  return $resource('http://localhost:3000/quests/all.json')
+})
 
+.factory('LogInFactory', function($resource) {
+  return $resource('http://localhost:3000/login/signin')
+})

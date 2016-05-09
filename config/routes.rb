@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   delete 'deputies/:id' => 'deputy#delete', as: :deputies_delete
 
 
-
 	get 'gamifications/all' => 'gamification#all', format: :json
 
 	get 'achievements/all' => 'achievement#all', format: :json
@@ -46,6 +45,7 @@ Rails.application.routes.draw do
 	delete 'parties/:id' => 'party#delete', as: :parties_delete
 
   get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+  post 'login' => 'user#create'
+  get 'login/signin' => 'user#logInConfirm'
   get 'logout' => 'sessions#destroy'
 end
