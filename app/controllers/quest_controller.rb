@@ -21,6 +21,8 @@ class QuestController < ApplicationController
 		@quest = Quest.new(quest_params)
 		if @quest.save
 			redirect_to :quests_all
+		else
+			render 'new'
 		end
 	end
 
@@ -47,12 +49,8 @@ class QuestController < ApplicationController
 		quest = quests.first
 		redirect_to :quests_all
 	end
-	#		else
-	#			render 'edit'
-	#				end
 
-
-
+	
 	private
 
 	def quest_params

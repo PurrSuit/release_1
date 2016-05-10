@@ -32,33 +32,68 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     controller: 'AppCtrl'
   })
 
-// Listing all quests
-    .state('app.quests', {
-      url: '/quests',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/quests.html',
-          controller: 'QuestsCtrl'
-        }
-      }
-    })
-
-// For a single quest
-    .state('app.singleQuest', {
-      url: '/quests/:questId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/quest.html',
-          controller: 'QuestCtrl'
-        }
-      }
-    })
-
-  .state('app.search', {
-    url: '/search',
+  // Listing all quests
+  .state('app.quests', {
+    url: '/quests',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/quests.html',
+        controller: 'QuestsCtrl'
+      }
+    }
+  })
+
+  // For a single quest
+  .state('app.singleQuest', {
+    url: '/quests/:questId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/quest.html',
+        controller: 'QuestCtrl'
+      }
+    }
+  })
+
+  // Listing all Achievements
+  .state('app.Achievements', {
+    url: '/achievements',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/achievements.html',
+        controller: 'AchievementsCtrl'
+      }
+    }
+  })
+
+  // Listing a single achievement
+  .state('app.SingleAchievement', {
+    url: '/achievements/:achvId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/singleAchievement.html',
+        controller: 'SingleACHV'
+      }
+    }
+  })
+
+
+  // Listing all users
+  .state('app.users', {
+    url: "/users",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/users.html",
+        controller: 'UsersCtrl'
+      }
+    }
+  })
+
+  .state('app.login', {
+    url: "/login",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/login.html",
+        controller: 'loginCtrl'
       }
     }
   })
@@ -71,26 +106,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
-  // if none of the above states are matched, use this as the fallback
-  // This should be routed for Deputys
-  $urlRouterProvider.otherwise('/app/playlists');
+    // if none of the above states are matched, use this as the fallback
+    // Deputys view is 'browse'
+  $urlRouterProvider.otherwise('/app/login');
 });

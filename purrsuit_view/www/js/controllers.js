@@ -43,38 +43,31 @@ angular.module('starter.controllers', ['starter.services', 'ngResource'])
 
 // ALL -- Quests controller
 .controller('QuestsCtrl', function($scope, Quest) {
-    $scope.quests = Quest.query();
+  Quest.get(function(data) {
+    console.log(data.quest);
+    $scope.quest = data.quest;
+  });
 })
 
 //SINGLE -- Quests Details controller
 .controller('QuestCtrl', function($scope, $stateParams, Quest) {
-  var questArray = Quest.get({id: $stateParams.questId});
-  $scope.whichQuest = questArray;//Quest.get({id: $stateParams.questId});
-  console.log(typeof questArray + " " + Array.isArray(questArray));
-  console.log($stateParams.questId);
-  console.log($scope.whichQuest);
+  $scope.quests = Quest.query();
+  //		console.log(this.quests);
+  $scope.questId = $stateParams.questId;
+  //  var questArray = Quest.quest.get({id: $stateParams.questId});
+  //  $scope.whichQuest = questArray;//Quest.get({id: $stateParams.questId});
+  //  console.log(typeof questArray + " " + Array.isArray(questArray));
+  //  console.log($stateParams.questId);
+  //  console.log($scope.whichQuest);
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [{
-    title: 'Reggae',
-    id: 1
-  }, {
-    title: 'Chill',
-    id: 2
-  }, {
-    title: 'Dubstep',
-    id: 3
-  }, {
-    title: 'Indie',
-    id: 4
-  }, {
-    title: 'Rap',
-    id: 5
-  }, {
-    title: 'Cowbell',
-    id: 6
-  }];
+// Users Controller
+.controller('UsersCtrl', function($scope, Api, $ionicPopup) {
+  $scope.users = Api.User.query();
+  $scope.showInfo = function(user) {
+    var alertPopup = $ionicPopup.alert({
+      title: user.name,
+      template: user.email
+    });
+  };
 })
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {});
