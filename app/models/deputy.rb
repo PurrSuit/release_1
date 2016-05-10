@@ -1,4 +1,6 @@
-require 'httparty'
+require "net/http"
+require "uri"
+require "nokogiri"
 
 class Deputy < ActiveRecord::Base
   acts_as :person
@@ -13,9 +15,13 @@ class Deputy < ActiveRecord::Base
   validates :legislation_situation, presence: true, length: {maximum: 100}
 
 
-  def parser_deputy
-    response = HTTparty.get('')
+  def self.parse_deputy
+    url = URI.parse("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados")
+    request = Net::HTTP::Get.new(url.to_s)
+    response = Net::HTTP.start(url.host, url.port) {|http|
+      http.request(request)
+    }
+    puts response.body
   end
-
 
 end
