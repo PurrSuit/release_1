@@ -60,10 +60,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     views: {
       'menuContent': {
         templateUrl: 'templates/achievements.html',
-        //controller: 'AchievementsCtrl'
+        controller: 'AchievementsCtrl'
       }
     }
   })
+
+  // Listing a single achievement
+  .state('app.SingleAchievement', {
+    url: '/achievements/:achvId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/singleAchievement.html',
+        controller: 'SingleACHV'
+      }
+    }
+  })
+
 
   // Listing all users
   .state('app.users', {
@@ -85,9 +97,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
       }
     }
   })
-
-
-
 
   .state('app.browse', {
       url: '/browse',
