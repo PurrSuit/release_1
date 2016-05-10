@@ -25,7 +25,7 @@ class UserController < ApplicationController
       raise "ERROR: User not found"
     else
       if password_user == user.password
-          render json: user
+          raise "success"
       end
     end
   end
@@ -67,7 +67,7 @@ class UserController < ApplicationController
 
   private
   def get_params
-        params.require(:user).permit(:name, :gender, :email, :cpf, :age,
+        params.require(:user).permit(:name, :gender, :email, :age,
                                     :password, :password_confirmation)
     end
 end
