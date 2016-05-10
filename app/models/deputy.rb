@@ -4,18 +4,20 @@ require "nokogiri"
 
 class Deputy < ActiveRecord::Base
   acts_as :person
+  belongs_to :uf
 
-  validates_numericality_of :age
-  validates_numericality_of :registration
+  # validates_numericality_of :age
+  # validates_numericality_of :registration
 
-  validates :name, presence: true, length: {maximum: 50}
-  validates :age, presence: true
-  validates :gender, presence: true
-  validates :registration, presence: true, uniqueness: true
-  validates :legislation_situation, presence: true, length: {maximum: 100}
+  # validates :name, presence: true, length: {maximum: 50}
+  # validates :age, presence: true
+  # validates :gender, presence: true
+  # validates :registration, presence: true, uniqueness: true
+  # validates :legislation_situation, presence: true, length: {maximum: 100}
 
 
   def self.parse_deputy
+    Uf.populate_ufs
     url = URI.parse("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados")
     request = Net::HTTP::Get.new(url.to_s)
     response = Net::HTTP.start(url.host, url.port) {|http|
@@ -23,13 +25,33 @@ class Deputy < ActiveRecord::Base
     }
     xml_doc = Nokogiri::XML(response.body)
     xml_doc.xpath("//deputado").each do |d|
-      deputy = Deputy.new(  d.xpath("//nome").text.to_s,
-                            d.xpath("//sexo").text.to_s,
-                            d.xpath("//email").text.to_s,
-                            0,
-                            d.xpath("//ideCadastro").text.to_s,
-                            d.xpath("//condicao").text.to_s)
-      deputy.save
+      ideCadastro = d.elements[0].text.to_s
+      condicao = d.elements[2].text.to_s
+      matricula = d.elements[3].text.to_s
+      idParlamentar = d.elements[4].text.to_s
+      nome = d.elements[5].text.to_s
+      nomeParlamentar = d.elements[6].text.to_s
+      urlFoto = d.elements[7].text.to_s
+      sexo = d.elements[8].text.to_s
+      uf = d.elements[9].text.to_s
+      partido = d.elements[10].text.to_s
+      fone = d.elements[13].text.to_s
+      email = d.elements[14].text.to_s
+
+
+
+      deputy = Deputy.new(
+                            :name => nome,
+                            :deputy_name => nomeParlamentar,
+                            :gender => sexo,
+                            :email => email,
+                            :registration => matricula,
+                            :legislation_situation => condicao
+                            )
+
+      if deputy.save
+        puts "Deputado " + nomeParlamentar + " salvo."
+      end
     end
   end
   # (:name,:gender,:email,:age,:registration,:legislation_situation)
