@@ -21,7 +21,16 @@ class Deputy < ActiveRecord::Base
     response = Net::HTTP.start(url.host, url.port) {|http|
       http.request(request)
     }
-    puts response.body
+    xml_doc = Nokogiri::XML(response.body)
+    xml_doc.xpath("//deputado").each do |d|
+      deputy = Deputy.new(  d.xpath("//nome").text.to_s,
+                            d.xpath("//sexo").text.to_s,
+                            d.xpath("//email").text.to_s,
+                            0,
+                            d.xpath("//ideCadastro").text.to_s,
+                            d.xpath("//condicao").text.to_s)
+      deputy.save
+    end
   end
-
+  # (:name,:gender,:email,:age,:registration,:legislation_situation)
 end
