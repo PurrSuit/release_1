@@ -46,7 +46,6 @@ angular.module('starter.controllers', ['starter.services', 'ngResource'])
   Quest.get(function(data) {
     console.log(data.quest);
     $scope.quest = data.quest;
-
   });
 })
 
