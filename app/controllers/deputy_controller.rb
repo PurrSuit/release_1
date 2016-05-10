@@ -41,12 +41,7 @@ class DeputyController < ApplicationController
     deputy.destroy
       redirect_to :deputies_all
   end
-
-  def parse
-    @search_term = 'jhu'
-
-  end
-
+  
   private
   def get_params
         params.require(:deputy).permit(:name,:gender,:email,:age,:registration,:legislation_situation)
