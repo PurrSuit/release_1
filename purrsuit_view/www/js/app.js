@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/quests',
     views: {
       'menuContent': {
-        templateUrl: 'templates/quests.html',
+        templateUrl: 'templates/quests/quests.html',
         controller: 'QuestsCtrl'
       }
     }
@@ -40,7 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/quests/:questId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/quest.html',
+        templateUrl: 'templates/quests/quest.html',
         controller: 'QuestCtrl'
       }
     }
@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/achievements',
     views: {
       'menuContent': {
-        templateUrl: 'templates/achievements.html',
+        templateUrl: 'templates/achievements/achievements.html',
         controller: 'AchievementsCtrl'
       }
     }
@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/achievements/:achvId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/singleAchievement.html',
+        templateUrl: 'templates/achievements/singleAchievement.html',
         controller: 'SingleACHV'
       }
     }
