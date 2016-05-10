@@ -7,7 +7,7 @@ angular.module('starter')
     },
     function(error) {
       alert("Não foi possível estabelecer conexão com o servidor...");
-      console.log("SERVICES: ERROR in Deputies data from server...");
+      console.log("SERVICES: ERROR in getting Deputies data from server...");
     })
 })
 

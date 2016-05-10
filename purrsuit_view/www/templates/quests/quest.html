@@ -1,4 +1,4 @@
-<ion-view view-title="{{quests.quest[questId-1].name}}">
+<ion-view view-title="{{quest.name}}">
   <ion-content>
     <div class="list card">
 			<div class="item item-icon-left">
@@ -6,11 +6,11 @@
 				<h2 class="QuestTitle"> Descrição </h2>
 			</div>
 			<div class="item-body">
-				<p>{{quests.quest[questId-1].description}} </p>
+				<p>{{quest.description}} </p>
 			</div>
 			<div class="item item-icon-left">
 				<i class="icon ion-ribbon-b"></i>
-				<p>Valor: {{quests.quest[questId-1].experience_points}} XP</p>
+				<p>Valor: {{quest.experience_points}} XP</p>
 			</div>
     </div>
   </ion-content>
