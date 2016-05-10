@@ -1,14 +1,10 @@
 angular.module('starter')
 
-.controller('loginCtrl', function($scope, LogInFactory) {
+.controller('loginCtrl', function($scope, LogInFactory, $ionicPopup) {
 
   $scope.signIn = function(user) {
-
-    LogInFactory.get(user,function(data){},function(error){
-      alert("ERROR: Could not login :(");
-
-
-    });
+    console.log(user)
+    LogInFactory.get(user);
   }
 }
 )
