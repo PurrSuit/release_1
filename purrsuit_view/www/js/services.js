@@ -19,6 +19,18 @@ angular.module('starter.services', ['ngResource'])
   return $resource('http://localhost:3000/quests/all.json')
 })
 
+.factory('ServerFindQuest', function($resource){
+  return $resource('http://localhost:3000/quests/:id',{
+    id: "@id"
+  })
+})
+
 .factory('ServerAchievements', function($resource){
   return $resource('http://localhost:3000/achievements/all.json')
+})
+
+.factory('ServerFindAchv', function($resource){
+  return $resource('http://localhost:3000/achievements/:id',{
+    id: "@id"
+  })
 })
