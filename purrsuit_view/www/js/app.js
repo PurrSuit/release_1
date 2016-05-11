@@ -122,6 +122,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     }
   })
 
+  .state('app.searchDeputies', {
+    url: '/browseDeputies/search',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deputies/searchDeputies.html',
+        controller: 'SearchDeputiesCtrl'
+      }
+    }
+  })
+
   // Deputys view is 'browseDeputies'
   $urlRouterProvider.otherwise('/app/login');
 });
