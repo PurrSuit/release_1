@@ -11,23 +11,22 @@ Rails.application.routes.draw do
   delete 'deputies/:id' => 'deputy#delete', as: :deputies_delete
 
 
-
 	get 'gamifications/all' => 'gamification#all', format: :json
 
-	get 'achievements/all' => 'achievement#all', format: :json
+	get 'achievements/all' => 'achievement#all', format: :json, as: :achievements_all
 	get 'achievements/new' => 'achievement#new', format: :json, as: :achievements_new
 	post 'achievements/create' => 'achievement#create', as: :achievements
 	get 'achievements/:id' => 'achievement#show', format: :json
   get 'achievements/:edit' => 'achievement#edit', format: :json
   patch 'achievements/:update' => 'achievement#update'
 
-	get 'quests/all' => 'quest#all', format: :json
+	get 'quests/all' => 'quest#all', format: :json, as: :quests_all
 	get 'quests/new' => 'quest#new', format: :json, as: :quests_new
 	post 'quests/create' => 'quest#create', as: :quests
 	get 'quests/:id' => 'quest#show', format: :json
 	put 'quests/:id/update' => 'quest#update', format: :json, as: :quests_update
-	get 'quests/:id/edit' => 'quest#edit', as: :quests_edit
-	delete 'quests/:id' => 'quest#delete', as: :quests_delete
+	get 'quests/:id/edit' => 'quest#edit', format: :json, as: :quests_edit
+	delete 'quests/:id' => 'quest#delete'
 
 	get 'ufs/all' => 'uf#all', format: :json
 	get 'ufs/new' => 'uf#new'
@@ -47,5 +46,6 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
+  get 'login/signin' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 end

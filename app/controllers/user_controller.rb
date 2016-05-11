@@ -1,5 +1,7 @@
 class UserController < ApplicationController
 
+  skip_before_filter  :verify_authenticity_token
+
   def all
     render json: User.all
   end
@@ -11,13 +13,26 @@ class UserController < ApplicationController
         if (users.length > 0)
           user = users.first
         else
-          raise "error"
+          raise "ERROR: No user to be shown"
         end
           render json: user
   end
 
   def new
+  end
 
+  def logInConfirm
+    email_user = params[:email]
+    password_user = params[:password]
+    user = User.where(email: email_user)
+
+    if !user
+      raise "ERROR: User not found"
+    else
+      if password_user == user.password
+          raise "success"
+      end
+    end
   end
 
   def create
@@ -26,8 +41,10 @@ class UserController < ApplicationController
     if saved
       session[:user_id] = user.id
       render json: user
+      raise "success!"
     else
       render 'new'
+      raise "fail!"
     end
   end
 
@@ -57,6 +74,6 @@ class UserController < ApplicationController
 
   private
   def get_params
-        params.require(:user).permit(:name,:gender,:email,:cpf,:age,:password,:password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

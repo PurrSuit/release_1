@@ -11,30 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507174737) do
-
+ActiveRecord::Schema.define(version: 20160507211930) do
 
   create_table "achievements", force: :cascade do |t|
   end
 
-  create_table "cabinet", force: :cascade do |t|
+  create_table "cabinets", force: :cascade do |t|
+    t.string   "phone"
     t.string   "annex"
-    t.integer  "id_dep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cabinets", force: :cascade do |t|
-    t.string   "annex"
-    t.string   "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
-    
   create_table "deputies", force: :cascade do |t|
     t.integer "registration"
     t.string  "legislation_situation"
-
+    t.integer "party_id"
+    t.integer "uf_id"
+    t.string  "deputy_name"
   end
 
   create_table "gamifications", force: :cascade do |t|
@@ -61,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160507174737) do
     t.string   "name"
     t.string   "gender"
     t.string   "email"
-    t.string   "cpf"
     t.string   "age"
     t.integer  "uf_id"
     t.datetime "created_at",   null: false
@@ -82,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160507174737) do
     t.string  "password_digest"
     t.integer "experience_points", default: 0,     null: false
     t.boolean "role_admin",        default: false, null: false
+    t.integer "uf_id"
   end
 
 end

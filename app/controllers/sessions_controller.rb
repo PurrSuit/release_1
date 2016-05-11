@@ -4,11 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       render json: user
+      raise "login successfull!"
     else
+      raise "login failed!"
       redirect_to 'login'
     end
   end

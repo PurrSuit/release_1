@@ -27,7 +27,7 @@ module Purrsuit
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :put, :delete, :post, :options]
+        resource '*', :headers => :any, :methods => [:get, :put, :patch, :delete, :post, :options]
       end
     end
 
