@@ -30,7 +30,7 @@ class UserController < ApplicationController
       raise "ERROR: User not found"
     else
       if password_user == user.password
-          render json: user
+          raise "success"
       end
     end
   end
