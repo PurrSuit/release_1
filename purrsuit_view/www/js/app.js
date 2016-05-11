@@ -24,6 +24,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     controller: 'AppCtrl'
   })
 
+  // Sign Up
+  .state('app.signUp', {
+    url: '/signup',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signUp/signUp.html',
+        controller: 'SignUpCtrl'
+      }
+    }
+  })
+
   // Listing all quests
   .state('app.quests', {
     url: '/quests',
