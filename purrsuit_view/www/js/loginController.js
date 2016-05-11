@@ -2,20 +2,18 @@ angular.module('starter')
 
 .controller('loginCtrl', function($scope, LogInFactory, $ionicPopup) {
 
-  $scope.signIn = function(user) {
-    console.log(user)
-    LogInFactory.get(user);
-  }
   $scope.signIn = function(user){
     LogInFactory.get(user, function(user) {
       $ionicPopup.alert({
-        title: 'Sucesso :D',
+        title: 'Sucesso',
         template: 'Login efetuado'
       });
+
       console.log(user);
     }, function(error) {
+      console.log(error);
       $ionicPopup.alert({
-        title: 'Erro :(',
+        title: 'Erro',
         template: 'Falha no login'
       });
     });

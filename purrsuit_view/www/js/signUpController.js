@@ -2,7 +2,8 @@ angular.module('starter')
 
 .controller('SignUpCtrl', function($scope, SignUp, $ionicPopup) {
   $scope.signUp = function(user){
-    SignUp.save(user, function(user) {
+    console.log(user);
+    SignUp.save({user:user}, function(user) {
       $ionicPopup.alert({
         title: 'Sucesso :D',
         template: 'Conta criada com êxito!'

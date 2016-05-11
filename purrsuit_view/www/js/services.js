@@ -29,6 +29,12 @@ angular.module('starter.services', ['ngResource'])
   })
 })
 
+.factory('ServerSearchDeputies', function($resource){
+  return $resource('http://localhost:3000/deputies/search/:toSearch', {
+    toSearch: "@toSearch"
+  })
+})
+
 .factory('ServerAchievements', function($resource){
   return $resource('http://localhost:3000/achievements/all.json')
 })
