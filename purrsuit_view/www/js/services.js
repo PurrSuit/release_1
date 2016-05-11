@@ -5,6 +5,10 @@ angular.module('starter.services', ['ngResource'])
   return $resource('http://localhost:3000/login/signin')
 })
 
+.factory('SignUp', function($resource) {
+  return $resource('http://localhost:3000/users/create')
+})
+
 .factory('ServerDeputies', function($resource){
   return $resource('http://localhost:3000/deputies/all')
 })
