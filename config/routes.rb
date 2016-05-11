@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'deputies/all' => 'deputy#all', format: :json
   get 'deputies/:id' => 'deputy#show', format: :json
+  get 'deputies/search/:toSearch' => 'deputy#search', format: :json
   delete 'deputies/:id' => 'deputy#delete', as: :deputies_delete
 
 
