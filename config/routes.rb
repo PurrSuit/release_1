@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 	delete 'parties/:id' => 'party#delete', as: :parties_delete
 
   get 'login' => 'sessions#new'
-  post 'login' => 'user#create'
-  get 'login/signin' => 'user#logInConfirm'
+  post 'login' => 'sessions#create'
+  get 'login/signin' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 end
