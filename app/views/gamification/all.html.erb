@@ -5,11 +5,6 @@
 	</head>
 	<body>
 		<div class="principalSquare">
-			<ul class="nav nav-pills red">
-			  <li role="presentation"><a href="#">Início</a></li>
-			  <li role="presentation" class="active"><%= link_to "Gamification", :gamifications_all%></li>
-	 			<li role="presentation"><%= link_to "UF's", :ufs_all%></li>
-			</ul>
 			<div class="listSquare">
 				<% @gamifications.each do | gami | %>
 					<div class="panel panel-default">
@@ -33,5 +28,6 @@
 				<% end %>
 			</div>
 		</div>
+
 	</body>
 </html>
