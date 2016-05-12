@@ -1,7 +1,16 @@
 class AchievementController < ApplicationController
 
 	def all
+<<<<<<< HEAD
 		render json: Achievement.all
+=======
+		@achievement = Achievement.all
+
+		respond_to do |format|
+			format.html
+			format.json {render json: @achievement}
+		end
+>>>>>>> ad689f8... Achievement controller changed,method delete updated
 	end
 
 	def show
@@ -35,9 +44,16 @@ class AchievementController < ApplicationController
 
 	def delete
 		id_achievement = params[:id]
+<<<<<<< HEAD
 		achievements = Achievement.where(id: id_quest)
 		achievement = achievements.first
 			redirect_to :achievements_all
+=======
+		achievements = Achievement.where(id: id_achievement)
+		achievement = achievements.first
+		achievement.destroy
+		redirect_to :gamifications_all
+>>>>>>> ad689f8... Achievement controller changed,method delete updated
 	end
 
 	private
