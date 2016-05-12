@@ -56,6 +56,7 @@ class Deputy < ActiveRecord::Base
                             :deputy_name => nomeParlamentar,
                             :gender => sexo,
                             :email => email,
+                            :image_path => urlFoto,
                             :registration => matricula,
                             :legislation_situation => condicao
                             )
