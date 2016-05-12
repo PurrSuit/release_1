@@ -1,5 +1,4 @@
 class Party < ActiveRecord::Base
-	belongs_to :uf
 	has_many :deputies
 
 	validates :name, presence: true, length: { minimum: 10 }, uniqueness: true
