@@ -2,20 +2,25 @@ angular.module('starter')
 
 .controller('AchievementsCtrl', function($scope, ServerAchievements){
   ServerAchievements.get(function(data){
-    console.log("SERVER: Getting achievements data from server...");
+    console.log("SERVICES: Getting achievements data from server...");
     $scope.achievements = data.achievement;
-    console.log($scope.achievements);
+  },
+  function(error){
+    alert("Não foi possível estabelecer conexão com o servidor...");
+    console.log("SERVICES: ERROR in getting Achievements data from server...");
   })
 })
 
 // 'ACHV' means 'achievement'
-.controller('SingleACHV', function($scope, $stateParams, ServerAchievements){
-  // Getting JSON from server
-  ServerAchievements.get(function(data){
-    $scope.achievements = data;
-  });
+.controller('SingleACHV', function($scope, $stateParams, ServerFindAchv){
+  var searchId = $stateParams.achvId;
 
-  // Send id to scope
-  $scope.achvId = $stateParams.achvId;
-  console.log("SERVER: Achievement Id is " + $scope.achvId);
+  ServerFindAchv.get({id: searchId}, function(data){
+    console.log("SERVICES: Getting Achievement (Id: " + searchId + ") data from server...");
+    $scope.achievement = data.achievement;
+  },
+  function(error){
+    alert("Não foi possível estabelecer conexão com o servidor...");
+    console.log("SERVICES: ERROR in getting Achievement (Id: " + searchId + ") data from server...");
+  })
 })
