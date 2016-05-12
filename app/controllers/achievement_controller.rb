@@ -32,7 +32,7 @@ class AchievementController < ApplicationController
 	def update
 		@achievement = Achievement.find(params[:id])
 		if @achievement.update(achievement_params)
-			redirect_to @achievement
+			redirect_to :achievements_all
 		else
 			render 'edit'
 		end
