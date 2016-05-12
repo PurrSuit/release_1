@@ -40,10 +40,16 @@ class AchievementController < ApplicationController
 
 	def delete
 		id_achievement = params[:id]
+<<<<<<< HEAD
 		achievements = Achievement.where(id: id_achievement)
 		achievement = achievements.first
 		achievement.destroy
 		redirect_to :gamifications_all
+=======
+		achievements = Achievement.where(id: id_quest)
+		achievement = achievements.first
+			redirect_to :achievements_all
+>>>>>>> desenvolvimento
 	end
 
 	private
