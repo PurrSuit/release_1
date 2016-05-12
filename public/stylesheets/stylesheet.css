@@ -22,13 +22,13 @@
   border-radius: 6px;
 	margin: 0 auto;
 	display: table;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .gamification_button{
 	margin: 0 auto;
 	display: table;
-	margin-top: 40px;
+	margin-top: 30px;
 }
 
 
@@ -96,9 +96,9 @@
 .purrSuitImage{
 	width: 200px;
 	height: 200px;
-	position: relative;
 	border-radius: 40px;
-	margin-left: 70px;
+	margin: 0 auto;
+	display: table;
 }
 .gamiName{
 	text-size: 16px;
