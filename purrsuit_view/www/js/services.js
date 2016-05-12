@@ -9,6 +9,18 @@ angular.module('starter.services', ['ngResource'])
   return $resource('http://localhost:3000/users/create')
 })
 
+.factory('LogOutFactory', function($resource) {
+  return $resource('http://localhost:3000/logout')
+})
+
+.factory('EditUser', function($resource) {
+  return $resource('http://localhost:3000/users/update')
+})
+
+.factory('DeleteUser', function($resource) {
+  return $resource('http://localhost:3000/users/delete/:id')
+})
+
 .factory('ServerDeputies', function($resource){
   return $resource('http://localhost:3000/deputies/all')
 })
