@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20160507211711) do
     t.integer  "uf_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "cpf"
   end
 
   create_table "quests", force: :cascade do |t|

@@ -42,8 +42,8 @@ class AchievementController < ApplicationController
 		id_achievement = params[:id]
 		achievements = Achievement.where(id: id_achievement)
 		achievement = achievements.first
-		achievement.destroy
-		redirect_to :gamifications_all
+		achievement.destroyss
+		redirect_to :achievements_all
 	end
 
 	private

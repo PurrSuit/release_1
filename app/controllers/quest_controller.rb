@@ -47,7 +47,8 @@ class QuestController < ApplicationController
 		id_quest = params[:id]
 		quests = Quest.where(id: id_quest)
 		quest = quests.first
-		redirect_to :gamifications_all
+		quest.destroy
+		redirect_to :quests_all
 	end
 
 
