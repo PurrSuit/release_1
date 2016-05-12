@@ -90,6 +90,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     }
   })
 
+  //Edit user
+  .state('app.edituser', {
+    url: "/edituser",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/editUser.html",
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  //Delete user
+  .state('app.deleteuser', {
+    url: "/deleteuser",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/userProfile.html",
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  //Log out
+  .state('app.logout', {
+    url: "/logout",
+    views: {
+      'menuContent': {
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
   // Sign Up
   .state('app.signUp', {
     url: '/signup',
