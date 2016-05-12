@@ -13,12 +13,19 @@ angular.module('starter')
 
 .controller('DeputyCtrl', function($scope, $stateParams, ServerFindDeputy) {
   var findId = $stateParams.deputyId;
+
   ServerFindDeputy.get({
       id: findId
     },
     function(data) {
       console.log("SERVICES: Getting Deputy (Id: " + findId + ") data from server...");
       $scope.deputy = data.deputy;
+
+      /* Enable use when using deputyDetailsController.js and deputy.html */
+      /*var deputy_uf_id = $scope.deputy.uf_id;
+      var deputy_party_id = $scope.deputy.party_id;
+      localStorage.setItem("DeputyUfId", deputy_uf_id);
+      localStorage.setItem("DeputyPartyId", deputy_party_id);*/
     },
     function(error) {
       alert("Não foi possível estabelecer conexão com o servidor...");
@@ -32,7 +39,7 @@ angular.module('starter')
     $scope.deputies = [];
 
     //console.log(inputText.lenght);
-    
+
     ServerSearchDeputies.get({
         toSearch: inputText
       },
