@@ -1,4 +1,4 @@
-<ion-view view-title="{{achievements.achievement[achvId-1].name}}">
+<ion-view view-title="{{achievement.name}}">
   <ion-content>
     <div class="list card">
 			<div class="item item-icon-left">
@@ -6,11 +6,11 @@
 				<h2 class="TitleDescription"> Descrição </h2>
 			</div>
 			<div class="item-body">
-				<p>{{achievements.achievement[achvId-1].description}} </p>
+				<p>{{achievement.description}} </p>
 			</div>
 			<div class="item item-icon-left">
 				<i class="icon ion-ribbon-b"></i>
-				<p>Valor: {{achievements.achievement[achvId-1].experience_points}} XP</p>
+				<p>Valor: {{achievement.experience_points}} XP</p>
 			</div>
     </div>
   </ion-content>

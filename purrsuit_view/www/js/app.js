@@ -1,15 +1,7 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -32,12 +24,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     controller: 'AppCtrl'
   })
 
+  // Sign Up
+  .state('app.signUp', {
+    url: '/signup',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signUp/signUp.html',
+        controller: 'SignUpCtrl'
+      }
+    }
+  })
+
   // Listing all quests
   .state('app.quests', {
     url: '/quests',
     views: {
       'menuContent': {
-        templateUrl: 'templates/quests.html',
+        templateUrl: 'templates/quests/quests.html',
         controller: 'QuestsCtrl'
       }
     }
@@ -48,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/quests/:questId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/quest.html',
+        templateUrl: 'templates/quests/quest.html',
         controller: 'QuestCtrl'
       }
     }
@@ -59,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/achievements',
     views: {
       'menuContent': {
-        templateUrl: 'templates/achievements.html',
+        templateUrl: 'templates/achievements/achievements.html',
         controller: 'AchievementsCtrl'
       }
     }
@@ -70,12 +73,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: '/achievements/:achvId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/singleAchievement.html',
+        templateUrl: 'templates/achievements/singleAchievement.html',
         controller: 'SingleACHV'
       }
     }
   })
-
 
   // Listing all users
   .state('app.users', {
@@ -98,16 +100,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
+  // Listing all deputies
+  .state('app.browseDeputies', {
+    url: '/browseDeputies',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deputies/browseDeputies.html',
+        controller: 'DeputiesCtrl'
       }
-    })
+    }
+  })
 
-    // if none of the above states are matched, use this as the fallback
-    // Deputys view is 'browse'
+  // Listing deputy's details
+  .state('app.deputy', {
+    url: '/deputy/:deputyId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deputies/deputy.html',
+        controller: 'DeputyCtrl'
+      }
+    }
+  })
+
+  .state('app.searchDeputies', {
+    url: '/browseDeputies/search',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deputies/searchDeputies.html',
+        controller: 'SearchDeputiesCtrl'
+      }
+    }
+  })
+
+  // Deputys view is 'browseDeputies'
   $urlRouterProvider.otherwise('/app/login');
 });
