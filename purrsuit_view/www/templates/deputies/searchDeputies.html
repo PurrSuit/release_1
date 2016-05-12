@@ -2,23 +2,19 @@
   <h1 class="title">Pesquisa de deputados</h1>
 </ion-header-bar>
 <ion-content>
-  <form ng-submit="doSearch(inputText)">
-    <div class="list" id="search_list">
+  <div class="list list-inset">
+    <form ng-submit="doSearch(inputText)">
       <label class="item item-input">
-        <span class="input-label">Pesquisar...</span>
-
-        <input type="text" ng-model="inputText">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input ng-model="inputText" type="text" placeholder="Digite aqui quem você deseja buscar...">
       </label>
-      <label class="item">
-        <button class="button button-block button-positive" type="submit">Pesquisar</button>
-      </label>
-    </div>
-  </form>
-  <div class="list">
-    <ion-item id="oi" collection-repeat="itemDeputy in deputies"
-          href="#/app/deputy/{{itemDeputy.id}}">
-      <h2>{{itemDeputy.name}}</h2>
-    </ion-item>
+    </form>
   </div>
-
+  <div class="list">
+    <a collection-repeat="itemDeputy in deputies" href="#/app/deputy/{{itemDeputy.id}}"
+                  class="item item-avatar">
+      <img src="img/ionic.png">
+      <h2>{{itemDeputy.name}}</h2>
+    </a>
+  </div>
 </ion-content>
