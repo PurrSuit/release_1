@@ -1,23 +1,27 @@
 <ion-view>
   <ion-content>
-    <h2 class="title">{{deputy.name}}</h2>
+    <div class="list card">
+      <div class="item item-thumbnail-left">
+        <img ng-src="{{deputy.image_path}}">
+        <h2><strong>Nome: </strong>{{deputy.deputy_name}}</h2>
+        <!--h3><strong>Partido:</strong></h3-->
+      </div>
+    </div>
+
+    <div class="item item-text-wrap">
+      <strong>Nome Completo:</strong> {{deputy.name}}
+    </div>
+
+    <div class="item item-text-wrap">
+      <strong>Registro:</strong> {{deputy.registration}}
+    </div>
+
+    <div class="item item-text-wrap">
+      <strong>Situaçao:</strong> {{deputy.legislation_situation}}
+    </div>
     
-    <!-- Image should be here -->
-
-    <!--div class="item item-text-wrap">
-      Deputy Party
-    </div-->
-
     <div class="item item-text-wrap">
-      Situação: {{deputy.legislation_situation}}
-    </div>
-
-    <div class="item item-text-wrap">
-      Idade: {{deputy.age}}
-    </div>
-
-    <div class="item item-text-wrap">
-      Registro: {{deputy.registration}}
+      <strong>Email:</strong> {{deputy.email}}
     </div>
   </ion-content>
 </ion-view>
