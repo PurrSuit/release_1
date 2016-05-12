@@ -1,7 +1,8 @@
 class DeputyController < ApplicationController
 
   def all
-    render json: Deputy.all
+    deputy_order = Deputy.order(:deputy_name)
+    render json: deputy_order
   end
 
   def show
@@ -18,13 +19,14 @@ class DeputyController < ApplicationController
 
   def search
     deputy_contains = params[:toSearch]
-    
+
     #Removing invalid spaces
     deputy_contains.strip!
     if deputy_contains.length
-      deputiesFound = Deputy.where("deputy_name LIKE ?", "%#{deputy_contains}%")
-      if deputiesFound
-        render json: deputiesFound
+      deputies_found = Deputy.where("deputy_name LIKE ?", "%#{deputy_contains}%")
+      if deputies_found
+        deputies_order = deputies_found.order(:deputy_name)
+        render json: deputies_order
       else
         raise "Deputies not found"
       end
@@ -58,7 +60,7 @@ class DeputyController < ApplicationController
     deputy.destroy
       redirect_to :deputies_all
   end
-  
+
   private
   def get_params
         params.require(:deputy).permit(:name,:gender,:email,:age,:registration,:legislation_situation)
