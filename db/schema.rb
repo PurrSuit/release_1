@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20160507211711) do
 
@@ -19,6 +20,13 @@ ActiveRecord::Schema.define(version: 20160507211711) do
   end
 
 
+=======
+ActiveRecord::Schema.define(version: 20160507211711) do
+
+  create_table "achievements", force: :cascade do |t|
+  end
+
+>>>>>>> f6fcfdf... db:migrate
   create_table "cabinets", force: :cascade do |t|
     t.string   "phone"
     t.string   "annex"
@@ -26,11 +34,11 @@ ActiveRecord::Schema.define(version: 20160507211711) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "deputies", force: :cascade do |t|
     t.string  "deputy_name"
     t.integer "registration"
     t.string  "legislation_situation"
+    t.string  "image_path"
     t.integer "party_id"
     t.integer "uf_id"
   end
