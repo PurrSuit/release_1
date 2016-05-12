@@ -19,13 +19,22 @@ class Deputy < ActiveRecord::Base
   def self.parse_deputies
     Uf.populate_ufs
     Party.parse_parties
-    
+
     url = URI.parse("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados")
     request = Net::HTTP::Get.new(url.to_s)
     response = Net::HTTP.start(url.host, url.port) {|http|
       http.request(request)
     }
-    xml_doc = Nokogiri::XML(response.body)
+
+    if response.kind_of? Net::HTTPSuccess
+      xml_doc = Nokogiri::XML(response.body)
+      puts "Alimentando base de dados dos DEPUTADOS a partir do webservice..."
+    else
+      xml_doc = Nokogiri::XML(File.open("xml/deputies.xml"))
+      puts "WebService dos DEPUTADOS inacessível."
+      puts "Alimentado base de dados dos DEPUTADOS a partir de backup..."
+    end
+
     xml_doc.xpath("//deputado").each do |d|
       ideCadastro = d.elements[0].text.to_s
       condicao = d.elements[2].text.to_s
@@ -57,5 +66,15 @@ class Deputy < ActiveRecord::Base
       end
     end
   end
-  # (:name,:gender,:email,:age,:registration,:legislation_situation)
+
+  def self.save_xml
+    url = URI.parse("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados")
+    request = Net::HTTP::Get.new(url.to_s)
+    response = Net::HTTP.start(url.host, url.port) {|http|
+      http.request(request)
+    }
+    xml_doc = Nokogiri::XML(response.body)
+
+    File.open('xml/deputies.xml', 'w') {|f| f.write xml_doc}
+  end
 end
