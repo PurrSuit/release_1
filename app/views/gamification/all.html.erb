@@ -4,29 +4,29 @@
 		<%= stylesheet_link_tag "stylesheet.css" %>
 	</head>
 	<body>
-		<h1 class="title"> PurrSuit </h1>
 		<div class="principalSquare">
-			<img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpl1/v/t34.0-12/13101411_1168501766502630_968318762_n.png?oh=47549cc5084e124547208b5eab132db4&oe=57358415&__gda__=1463071652_c787dc3b88e61c6ea7225dce81e80862" class="purrSuitImage"/>
-			<div class="subtitleR">
-				<h2 class="subtitle"> Gamifications </h2>
-			</div>
-			<div class="buttons">
-				<%= button_to "List Achievements", :achievements_all, :class => "button", :method => :get %>
-				<%= button_to "New Achievement", :achievements_new, :class => "button", :method => :get %>
-				<%= button_to "List Quests", :quests_all, :class=> "button", :method => :get %>	
-				<%= button_to "New Quest", :quests_new, :class => "button", :method => :get %>
-			</div>
 			<div class="listSquare">
-		    <% @gamifications.each do | game | %>
-					<div class="itemSquare">
-  			    <h2 class="gamiName"><%= game.name %></h2>
-            <p class="gamiDescription"><%= game.description %></p>
-						<div class="pointsCircle">
-  			    	<p class="gamiPoints"><%= game.experience_points %></p>
+				<% @gamifications.each do | gami | %>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><%= gami.name %></h4>
+              <% if gami.actable_type == "Quest" %>
+                <span class="label label-default">Quest</span>
+              <% else %>
+                <span class="label label-default">Achievement</span>
+              <% end %>
+						</div>
+						<div class="panel-body">
+							<%= gami.description%> id: <%= gami.id %>
+							<% if gami.actable_type == "Quest" %>
+								<%= button_to "Delete", quests_delete_path(gami), :method => :delete, :class => "btn btn-default btn-xs" %>
+							<% else %>
+								<%= button_to "Delete", achievements_path(gami), :method => :delete, :class => "btn btn-default btn-xs" %>
+							<% end %>
 						</div>
 					</div>
-		    <% end %>
-			</div>	
+				<% end %>
+			</div>
 		</div>
 
 	</body>

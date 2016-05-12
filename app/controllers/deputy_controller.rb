@@ -16,6 +16,23 @@ class DeputyController < ApplicationController
     render json:deputy
   end
 
+  def search
+    deputy_contains = params[:toSearch]
+    
+    #Removing invalid spaces
+    deputy_contains.strip!
+    if deputy_contains.length
+      deputiesFound = Deputy.where("deputy_name LIKE ?", "%#{deputy_contains}%")
+      if deputiesFound
+        render json: deputiesFound
+      else
+        raise "Deputies not found"
+      end
+    else
+      raise "Invalid field search"
+    end
+  end
+
   def create
     new_deputy = Deputy.new(get_params)
     deputy_saved = new_deputy.save
@@ -41,7 +58,7 @@ class DeputyController < ApplicationController
     deputy.destroy
       redirect_to :deputies_all
   end
-
+  
   private
   def get_params
         params.require(:deputy).permit(:name,:gender,:email,:age,:registration,:legislation_situation)
