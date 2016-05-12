@@ -19,12 +19,11 @@ Rails.application.routes.draw do
   get 'achievements/new' => 'achievement#new', format: :json, as: :achievements_new
   post 'achievements/create' => 'achievement#create', as: :achievements
   get 'achievements/:id' => 'achievement#show', format: :json
-  get 'achievements/:edit' => 'achievement#edit', format: :json
-  patch 'achievements/:id/update' => 'achievement#update'
-	delete 'achievements/:id' => 'achievement#delete'
+  get 'achievements/:id/edit' => 'achievement#edit', format: :json, as: :achievements_edit
+  put 'achievements/:id/update' => 'achievement#update',as: :achievements_update
+	delete 'achievements/:id' => 'achievement#delete', as: :achievements_delete
 
   get 'quests/all' => 'quest#all', format: :json, as: :quests_all
-
 	get 'quests/new' => 'quest#new', format: :json, as: :quests_new
 	post 'quests/create' => 'quest#create', as: :quests
 	get 'quests/:id' => 'quest#show', format: :json
