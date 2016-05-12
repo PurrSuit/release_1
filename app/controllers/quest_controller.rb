@@ -50,7 +50,7 @@ class QuestController < ApplicationController
 		redirect_to :quests_all
 	end
 
-	
+
 	private
 
 	def quest_params
