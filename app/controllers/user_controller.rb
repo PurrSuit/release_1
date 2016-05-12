@@ -21,7 +21,7 @@ class UserController < ApplicationController
   def new
   end
 
-  def logInConfirm
+  def log_in_confirm
     email_user = params[:email]
     password_user = params[:password]
     user = User.where(email: email_user)
