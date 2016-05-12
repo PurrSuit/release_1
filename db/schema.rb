@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20160507211711) do
   create_table "parties", force: :cascade do |t|
     t.string   "name"
     t.string   "initials"
-    t.integer  "uf_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
