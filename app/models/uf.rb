@@ -17,11 +17,15 @@ class Uf < ActiveRecord::Base
 			puts "Base de estados já populado!"
 		else
 			states.each do |state|
-				new_state = Uf.new(:name => state[0], :initials => state[1])
+				new_state = Uf.new(:name => state[1], :initials => state[0])
 				if new_state.save
 					puts "Adicionado " + state[0] + ": " + state[1]
 				end
 			end
 		end
+	end
+
+	def add_deputy deputy
+			self.deputies << deputy
 	end
 end

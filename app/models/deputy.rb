@@ -16,8 +16,10 @@ class Deputy < ActiveRecord::Base
   # validates :legislation_situation, presence: true, length: {maximum: 100}
 
 
-  def self.parse_deputy
+  def self.parse_deputies
     Uf.populate_ufs
+    Party.parse_parties
+    
     url = URI.parse("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados")
     request = Net::HTTP::Get.new(url.to_s)
     response = Net::HTTP.start(url.host, url.port) {|http|
@@ -48,8 +50,9 @@ class Deputy < ActiveRecord::Base
                             :registration => matricula,
                             :legislation_situation => condicao
                             )
-
       if deputy.save
+        Uf.find_by_initials(uf).add_deputy(deputy)
+        Party.find_by_initials(partido).add_deputy(deputy)
         puts "Deputado " + nomeParlamentar + " salvo."
       end
     end
