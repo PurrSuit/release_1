@@ -21,20 +21,6 @@ class UserController < ApplicationController
   def new
   end
 
-  def log_in_confirm
-    email_user = params[:email]
-    password_user = params[:password]
-    user = User.where(email: email_user)
-
-    if !user
-      raise "ERROR: User not found"
-    else
-      if password_user == user.password
-          raise "success"
-      end
-    end
-  end
-
   def create
     #puts get_params
     user = User.new(get_params)
@@ -48,7 +34,7 @@ class UserController < ApplicationController
         raise "sign up failed"
       end
     rescue RuntimeError => error_signup
-      puts #{error_signup}
+      puts "#{error_signup}"
     end
 
     #render json: User.new
@@ -63,19 +49,31 @@ class UserController < ApplicationController
   end
 
   def update
-    id_users = params[:id]
-    users = User.where(id: id_users)
-    user = users.first
-    user.update(get_params)
-    render json: user
+    user_id = params[:id]
+    puts "#{params[:user]}"
+    user = User.find_by(id: user_id)
+    begin
+      if user
+        user.update(get_params)
+        render json: user
+      else
+        raise "user edit failed"
+      end
+    rescue RuntimeError => error_edit
+      puts "#{error_edit}"
+    end
   end
 
   def delete
-    id_user = params[:id]
-    users = User.where(id: id_user)
-    user = users.first
-    user.destroy
-    redirect_to :users_all
+    user_id = params[:id]
+    user = User.find_by(id: user_id)
+    puts "#{user}"
+
+
+      if user
+        user.delete
+        render json: user
+      end
   end
 
   private

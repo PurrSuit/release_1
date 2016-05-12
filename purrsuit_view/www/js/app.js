@@ -24,17 +24,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     controller: 'AppCtrl'
   })
 
-  // Sign Up
-  .state('app.signUp', {
-    url: '/signup',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/signUp/signUp.html',
-        controller: 'SignUpCtrl'
-      }
-    }
-  })
-
   // Listing all quests
   .state('app.quests', {
     url: '/quests',
@@ -79,23 +68,67 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     }
   })
 
-  // Listing all users
-  .state('app.users', {
-    url: "/users",
+  // User
+  .state('app.userprofile', {
+    url: "/userprofile",
     views: {
       'menuContent': {
-        templateUrl: "templates/users.html",
-        controller: 'UsersCtrl'
+        templateUrl: "templates/userProfile.html",
+        controller: 'UserCtrl'
       }
     }
   })
 
+  //Log In
   .state('app.login', {
     url: "/login",
     views: {
       'menuContent': {
         templateUrl: "templates/login.html",
-        controller: 'loginCtrl'
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  //Edit user
+  .state('app.edituser', {
+    url: "/edituser",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/editUser.html",
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  //Delete user
+  .state('app.deleteuser', {
+    url: "/deleteuser",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/userProfile.html",
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  //Log out
+  .state('app.logout', {
+    url: "/logout",
+    views: {
+      'menuContent': {
+        controller: 'UserCtrl'
+      }
+    }
+  })
+
+  // Sign Up
+  .state('app.signUp', {
+    url: '/signup',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signUp/signUp.html',
+        controller: 'UserCtrl'
       }
     }
   })
