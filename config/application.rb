@@ -22,5 +22,14 @@ module Purrsuit
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    #Allow Rails to handle cross domain requests and run alongside Ionic
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :put, :patch, :delete, :post, :options]
+      end
+    end
+
   end
 end

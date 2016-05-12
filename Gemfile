@@ -25,8 +25,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'active_record-acts_as'
 
 # Integration with ionic
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
+
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,3 +42,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'bootstrap-sass', '~> 3.3.6'
