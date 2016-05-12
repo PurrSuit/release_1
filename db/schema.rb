@@ -11,22 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-
 ActiveRecord::Schema.define(version: 20160507211711) do
 
 
   create_table "achievements", force: :cascade do |t|
   end
 
-
-=======
-ActiveRecord::Schema.define(version: 20160507211711) do
-
-  create_table "achievements", force: :cascade do |t|
-  end
-
->>>>>>> f6fcfdf... db:migrate
   create_table "cabinets", force: :cascade do |t|
     t.string   "phone"
     t.string   "annex"
@@ -71,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160507211711) do
     t.integer  "uf_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "cpf"
   end
 
   create_table "quests", force: :cascade do |t|
