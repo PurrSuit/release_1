@@ -10,7 +10,7 @@ angular.module('starter')
         template: 'Conta criada com êxito!'
       });
       console.log(user)
-      $state.go('app.login')
+      $state.go('login')
 
     }, function(error) {
       $ionicPopup.alert({
@@ -23,10 +23,6 @@ angular.module('starter')
   //Log in
   $scope.signIn = function(data){
     LogInFactory.get(data, function(data) {
-      /*$ionicPopup.alert({
-        title: 'Sucesso',
-        template: 'Login efetuado'
-      });*/
       console.log(data);
       updateCurrentUser(data.user);
       $state.go('app.userprofile')
@@ -42,10 +38,10 @@ angular.module('starter')
 
   //Log out
   $scope.logOut = function(){
-    var userId = currentUser.id;
+    console.log($scope.currentUser.id)
+    var userId = $scope.currentUser.id;
     LogOutFactory.get(userId, function(userId) {
-      console.log(userId);
-      $state.go('app.login');
+      $state.go('login');
 
     }, function(error) {
       console.log("Log out error!");
@@ -96,7 +92,7 @@ angular.module('starter')
                title: 'Conta encerrada!',
                template: 'Conta encerrada com êxito!'
              });
-             $state.go('app.login')
+             $state.go('login',{},{reload: true})
 
            }, function(error) {
              $ionicPopup.alert({

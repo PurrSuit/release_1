@@ -1,21 +1,26 @@
-<ion-modal-view cache-view="false">
-  <ion-header-bar>
+<ion-header-bar class="temaPurrsuit" align-title="center">
     <h1 class="title">Login</h1>
-  </ion-header-bar>
+</ion-header-bar>
+<ion-view cache-view="false">
   <ion-content>
     <form ng-submit="signIn(user)">
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username</span>
+          <span class="input-label">E-mail</span>
           <input type="text" ng-model="user.email">
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
+          <span class="input-label">Senha</span>
           <input type="password" ng-model="user.password">
         </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
+        <div class="padding">
+          <button class="button button-block button-positive" type="submit">Entrar</button>
+        </div>
       </div>
     </form>
+    <div align="center">
+      <label>Não possui uma conta?</label><br>
+      <button class="button button-clear button-small button-positive" ui-sref="signup">Crie já a sua!</button>
+    </div>
   </ion-content>
+</ion-view>
