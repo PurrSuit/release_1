@@ -40,14 +40,3 @@ angular.module('starter.controllers', ['starter.services', 'ngResource'])
     }, 1000);
   };
 })
-
-// Users Controller
-.controller('UsersCtrl', function($scope, Api, $ionicPopup) {
-  $scope.users = Api.User.query();
-  $scope.showInfo = function(user) {
-    var alertPopup = $ionicPopup.alert({
-      title: user.name,
-      template: user.email
-    });
-  };
-})

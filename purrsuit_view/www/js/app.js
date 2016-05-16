@@ -80,14 +80,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
   })
 
   //Log In
-  .state('app.login', {
+  .state('login', {
     url: "/login",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/login.html",
-        controller: 'UserCtrl'
-      }
-    }
+    templateUrl: "templates/login.html",
+    controller: 'UserCtrl'
+  })
+
+  // Sign Up
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signUp/signUp.html',
+    controller: 'UserCtrl'
   })
 
   //Edit user
@@ -117,17 +120,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
     url: "/logout",
     views: {
       'menuContent': {
-        controller: 'UserCtrl'
-      }
-    }
-  })
-
-  // Sign Up
-  .state('app.signUp', {
-    url: '/signup',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/signUp/signUp.html',
+        templateUrl: "templates/menu.html",
         controller: 'UserCtrl'
       }
     }
@@ -166,5 +159,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngResource'])
   })
 
   // Deputys view is 'browseDeputies'
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 });
