@@ -24,7 +24,7 @@
 	margin-top: -50px;
 }
 
-.formulario{
+.form{
 	margin: 0 auto;
 	margin-top: 10px;
 	width: 300px;
@@ -33,6 +33,16 @@
 
 .page{
 	background-color: #607D8B;
+}
+
+.signupPage{
+	background-color: #607D8B;
+	vertical-align: middle;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 .secondColor{
